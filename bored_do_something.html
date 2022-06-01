@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are you bored? now do something</title>
+</head>
+
+<body>
+    <h1 id="activity"></h1>
+    <h3>learn More: <a id="explore_link" href="">Visited my place</a></h3>
+    <script>
+        function doSomething() {
+            fetch('http://www.boredapi.com/api/activity')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data.activity);
+                    document.getElementById('activity').innerText = data.activity;
+                })
+        }
+        doSomething();
+        setInterval(() => {
+            doSomething();
+        }, 3000);
+    </script>
+</body>
+
+</html>
